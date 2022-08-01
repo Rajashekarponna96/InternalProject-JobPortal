@@ -1,0 +1,8 @@
+com\anil\example\springboot\controller\StudentController.class
+com\anil\example\springboot\serviceimpl\StudentServiceImpl.class
+com\anil\example\springboot\entity\Student.class
+com\anil\example\springboot\repository\StudentRepository.class
+com\anil\example\springboot\Application.class
+com\anil\example\springboot\entity\Admin.class
+com\anil\example\springboot\repository\AdminRepository.class
+com\anil\example\springboot\service\StudentService.class

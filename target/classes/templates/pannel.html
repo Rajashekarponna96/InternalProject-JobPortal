@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Data Portal | Admin | Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="" th:href="@{/css/style.css}">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<!-- <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"><i class="fa fa-cube"></i>JOB<b>PORTAL</b></a>
+			<button type="button" data-target="#navbarCollapse"
+				data-toggle="collapse" class="navbar-toggle">
+				<span class="navbar-toggler-icon"></span> <span class="icon-bar"></span>
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+		</div>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a value="panel"
+					href=" /dataportal/checkdetails">Admin registration</a></li>
+				<li class="active"><a href="/dataportal/signuppannel">pannel</a></li>
+				<li><a href="#">About</a></li>
+				<li class="dropdown"><a data-toggle="dropdown"
+					class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Web Design</a></li>
+						<li><a href="#">Web Development</a></li>
+						<li><a href="#">Graphic Design</a></li>
+						<li><a th:href="@{/dataportal/signup}">Home </a></li>
+						<li><a href="#">Digital Marketing</a></li>
+					</ul></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+
+
+			<form class="navbar-form form-inline">
+				<div class="input-group search-box">
+					<input type="text" id="search" class="form-control"
+						placeholder="Search by Name"> <span
+						class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+				</div>
+			</form>
+
+		</div>
+	</nav>
+	<div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+				<div th:switch="${dataportal}" class="container my-5">
+				<p  class="my-5">
+						<a style = "float:left; margin-bottom: 10px" href="/dataportal/logout" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Home</i></a>
+					</p>
+				<p  class="my-5">
+						<a style = "float:left; margin-bottom: 10px" href="/dataportal/signup" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add Candidate</i></a>
+					</p>
+				<p  class="my-5">
+						<a style = "float:left; margin-bottom: 10px" href="/dataportal/signuppannel" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add pannel</i></a>
+					</p>
+					
+					<p  class="my-5">
+						<a style = "float:right; margin-bottom: 10px" href="/dataportal/logout" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Log out</i></a>
+					</p>
+					</br></br>
+					
+					
+<div>
+
+						</div>
+					
+					<div class="col-md-10">
+						<h2 th:case="null"> </h2>
+						<div th:case="*">
+						<div>
+						<form th:action="@{controller}" method="get">
+					<label>Search by</label>	
+						<label style="font-size: 500x; font-family: bold; float: right;" for="field" class="col-form-label"></label>
+                                    <select id="field" name="field"><!-- 
+                                     <option  value="Select">Select</option> -->
+									 <option  value="name">First Name</option>
+									 <option  value="lname">Last Name</option>
+                                     <option  value="email">Email</option>
+                                     <option  value="phoneNo">Phoneno</option>
+                                     <option  value="dob"> DOB</option>
+                                     <option  value="gender"> Gender</option>
+                                     <option  value="alternatePhoneNo">AlternatePhoneNo</option>
+                                     <option  value="jobRole"> JobRole</option>
+                                      <option  value="jpbType">JobType</option>
+                                     <option  value="experience"> Experience</option>
+                                     <option  value="abot"> About</option>
+                                     <option  value="status">Status</option>
+                                     </select>
+                                     <input   id="textsearch" type="text" name="keyword" />
+						<input type="submit" value="search" />
+						<input  type="reset" value="clear" />
+						</form><br></br>
+						</div>
+							<table class="table table-striped table-responsive-md">
+								<thead>
+
+									<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Email</th>
+										<th>Phone No</th>
+										<th>DOB</th>
+										<th>Gender</th>
+										<th>PAddress</th>
+										<th>TAddress</th>
+										<th>alternatePhoneNo</th>
+										<th>JobType</th>
+										<th>JobRole</th>
+										<th>Experience</th>
+										<th>about</th>
+										<th>InterviewStatus</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="student : ${dataportal}">
+										<td th:text="${student.name}"></td>
+										<td th:text="${student.lName}"></td>
+										<td th:text="${student.email}"></td>
+										<td th:text="${student.phoneNo}"></td>
+										<td th:text="${student.dob}"></td>
+										<td th:text="${student.gender}"></td>
+										<td th:text="${student.address}"></td>
+										<td th:text="${student.tAddress}"></td>
+										<td th:text="${student.alternatePhoneNo}"></td>
+										<td th:text="${student.jobType}"></td>
+										<td th:text="${student.jobRole}"></td>
+										<td th:text="${student.experience}"></td>
+										<td th:text="${student.about}"></td>
+										<td th:text="${student.status}"></td>
+										<td><a th:href="@{/dataportal/edit/{id}(id=${student.id})}"
+											class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/dataportal/delete/{id}(id=${student.id})}"
+											class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+									</tr>
+								</tbody>
+							</table>
+							
+			<div th:if = "${totalPages > 1}">
+			<div class = "row col-sm-10">
+				<div class = "col-sm-7">
+					Total Candidates: [[${totalItems}]] 
+				</div>
+				<div class = "col-sm-2">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+					</span>
+				</div>
+				<div class = "col-sm-1">
+					<a style="float:left;" th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
+					<span th:unless="${currentPage < totalPages}">Next </span>
+				</div>
+
+				 <div class="col-sm-1">
+    				<a style="float: right;"th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}}">Last</a>
+					<span th:unless="${currentPage < totalPages}">Last </span>
+   				 </div>
+			</div>
+		</div>
+			
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fixed-footer">
+		<div class="container">&copy; 2022 Job Portal</div>
+	</div>
+</body>

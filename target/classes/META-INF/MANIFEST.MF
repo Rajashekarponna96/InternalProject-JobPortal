@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: LENOVO
+Build-Jdk: 18
+Implementation-Title: springboot-crud-example
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: net.javaguides.springboot
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/springboot-crud-example
+Created-By: Maven Integration for Eclipse
+
